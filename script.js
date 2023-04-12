@@ -1,41 +1,52 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
-var length = Number (prompt("How many characters would you like your password to be? Enter a number between 8 and 128."));
 
-// Ask for character type 
-var charType = prompt ("Enter a character type (lower, upper, numeric, special).");
+function generatePassword  () {
+    // Ask for length
+    var length = Number (prompt ("Enter the length of your password between 8 and 128 characters"));
 
+    // Ask for character type   
+    var charType = prompt ("Enter a character type (lower, upper, numeric, special).");
 
-function writePassword() {
-    var passwordText = document.querySelector("#password");
-    passwordText.value = password;
-    console.log(password);
+    
     // character type 
+    
     var charSet= "";
     var charTypeLower = charType.toLowerCase();
-    if (charTypeLower === "lowerCase") {
+    if (charTypeLower === "lower") {
         charSet = "abcdefghijklmnopqrstuvwxyz";
-    } else if (charTypeLower === "upperCase") {
+    } else if (charTypeLower === "upper") {
         charSet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     } else if (charTypeLower === "numeric") {
         charSet = "0123456789";
     } else if (charTypeLower === "special") {
         charSet = "!#$%&'()*+,-./:;<=>?@[\]^_`{|}~";
     }
- 
+    
     // return value
-    var returnVal = "";
+    var returnVal = "";   
     for (var i = 0; i < length; i++) {
-        returnVal += charSet.charAt(Math.floor(Math.random() * charSet.length));
+        returnVal += charSet.charAt(Math.floor(Math.random() * charSet.length));       
     }
+   
     return returnVal;
 }
 
-window.alert (writePassword());
 
-// Appear password in display box
-document.getElementById("display").value = password();
+// Generate password
+
+function writePassword() {
+    var password = generatePassword();
+    const passwordText = document.getElementById("password");
+    passwordText.value = password;
+    return "El password: " + passwordText.value;
+}
+
+alert(writePassword());
+
+
+
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
