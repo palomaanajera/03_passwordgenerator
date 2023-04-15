@@ -1,1 +1,2 @@
 # 03_passwordgenerator
+This week challenge was intended to modify starter code in order to create an application that enables employees to generate random passwords based on criteria that they've selected. We will have to practiced what we learned this past week which was JavaScript to complete this challenge.
